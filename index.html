@@ -47,7 +47,6 @@
             color: #bfa8e6;
         }
 
-        /* Estilos del Contador Regresivo */
         .countdown-section {
             max-width: 750px;
             margin: 0 auto 3rem auto;
@@ -116,7 +115,6 @@
             padding: 1rem 0;
         }
 
-        /* Estilos de la Galería */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -159,7 +157,6 @@
             justify-content: center;
         }
 
-        /* Fondo claro para logotipos transparentes con tipografía oscura */
         .img-container.light-preview {
             background: #f4f6fa;
             padding: 1.5rem;
@@ -182,4 +179,147 @@
             flex-grow: 1;
         }
 
-        .card
+        .card-info h3 {
+            color: var(--rocket-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #d1c4e9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            font-size: 0.9rem;
+            color: #8c7aa9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TALE Sinaloa 2026</h1>
+        <p>Recopilación de Recurso Visual y Portada del Proyecto</p>
+    </header>
+
+    <section class="countdown-section" aria-label="Cuenta regresiva para el evento">
+        <div class="countdown-title">Cuenta regresiva para el despegue</div>
+        <div class="countdown-date">2 de Diciembre de 2026 • 7:00 AM</div>
+        
+        <div class="countdown-grid" id="countdown">
+            <div class="time-box">
+                <span class="number" id="days">00</span>
+                <span class="label">Días</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="hours">00</span>
+                <span class="label">Horas</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Minutos</span>
+            </div>
+            <div class="time-box">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Segundos</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="gallery-grid">
+            
+            <article class="gallery-card featured">
+                <div class="img-container">
+                    <img src="a_widescreen_high_contrast_sci_fi_website_hero_he.png" alt="Hero Web TALE Sinaloa 2026">
+                </div>
+                <div class="card-info">
+                    <h3>Banner Principal / Hero Web</h3>
+                    <p>Diseño conceptual para la página de inicio. Incluye ambientación espacial, el cohete en despegue y la tipografía en tono dorado brillante.</p>
+                </div>
+            </article>
+
+            <article class="gallery-card">
+                <div class="img-container">
+                    <img src="00_identidad_visual.jpg" alt="Kit de Identidad Visual TALE">
+                </div>
+                <div class="card-info">
+                    <h3>Manual / Kit de Identidad Visual</h3>
+                    <p>Guía de marca con especificaciones de logotipo, variantes tipográficas, paleta de colores oficial y reglas de protección.</p>
+                </div>
+            </article>
+
+            <article class="gallery-card">
+                <div class="img-container">
+                    <img src="01_logotipo.jpg" alt="Logotipo Emblemático TALE">
+                </div>
+                <div class="card-info">
+                    <h3>Emblema Principal TALE (Isologo)</h3>
+                    <p>Ilustración circular detallada con cohete espacial, nebulosas moradas, planetas y el texto TALE en relieve dorado.</p>
+                </div>
+            </article>
+
+            <article class="gallery-card">
+                <div class="img-container">
+                    <img src="02_logotipo_horizontal.jpg" alt="Logotipo Horizontal TALE Sinaloa 2026">
+                </div>
+                <div class="card-info">
+                    <h3>Logotipo Horizontal TALE</h3>
+                    <p>Versión apaisada ideal para encabezados y papelería, combinando el emblema circular con la tipografía oficial del evento.</p>
+                </div>
+            </article>
+
+            <article class="gallery-card">
+                <div class="img-container light-preview">
+                    <img src="02_logotipo_rocket_tecsinaloa_horizontal.png" alt="Logotipo Horizontal Rocket Tec Sinaloa 2026">
+                </div>
+                <div class="card-info">
+                    <h3>Logotipo Horizontal Rocket Tec Sinaloa</h3>
+                    <p>Identidad horizontal en tonos azul marino y celeste con emblema de cohete sobre montañas y tipografía institucional para 2026.</p>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 TALE & Rocket Tec Sinaloa • Ciencia, Innovación y Exploración</p>
+    </footer>
+
+    <script>
+        const targetDate = new Date("2026-12-02T07:00:00-07:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown").innerHTML = 
+                    '<div class="countdown-finished">¡El evento TALE Sinaloa 2026 ha comenzado! 🚀</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        const timerInterval = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
